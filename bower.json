@@ -18,10 +18,5 @@
     "bower.json",
     "gulpfile.js",
     "package.json"
-  ],
-  "dependencies": {
-    "purescript-prelude": "^6.0.0",
-    "purescript-enums": "^6.0.0",
-    "purescript-quickcheck": "^8.0.1"
-  }
+  ]
 }

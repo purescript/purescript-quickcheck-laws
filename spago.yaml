@@ -1,0 +1,30 @@
+package:
+  name: quickcheck-laws
+  publish:
+    license: MIT
+    version: 7.0.0
+    location:
+      githubOwner: purescript-contrib
+      githubRepo: purescript-quickcheck-laws
+  dependencies:
+    - arrays
+    - console
+    - control
+    - effect
+    - enums
+    - foldable-traversable
+    - maybe
+    - newtype
+    - prelude
+    - quickcheck
+  test:
+    main: Test.Main
+    dependencies:
+      - either
+      - identity
+      - lists
+      - tuples
+workspace:
+  extraPackages: {}
+  packageSet:
+    registry: 60.5.0
