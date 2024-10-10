@@ -69,7 +69,7 @@ checkEuclideanRingGen gen = do
           q = a / b
           r = a `mod` b
         in
-          a == q*b + r && (r == zero || degree r < degree b)
+          a == q * b + r && (r == zero || degree r < degree b)
 
     | otherwise = true
 

@@ -23,7 +23,8 @@ derive newtype instance coarbitraryA ∷ Coarbitrary A
 derive newtype instance eqA ∷ Eq A
 derive newtype instance ordA ∷ Ord A
 derive newtype instance semigroupA ∷ Semigroup A
-instance monoidA ∷ Monoid A where mempty = A EQ
+instance monoidA ∷ Monoid A where
+  mempty = A EQ
 
 newtype B = B Ordering
 
@@ -35,7 +36,8 @@ derive newtype instance coarbitraryB ∷ Coarbitrary B
 derive newtype instance eqB ∷ Eq B
 derive newtype instance ordB ∷ Ord B
 derive newtype instance semigroupB ∷ Semigroup B
-instance monoidB ∷ Monoid B where mempty = B EQ
+instance monoidB ∷ Monoid B where
+  mempty = B EQ
 
 newtype C = C Ordering
 
@@ -47,7 +49,8 @@ derive newtype instance coarbitraryC ∷ Coarbitrary C
 derive newtype instance eqC ∷ Eq C
 derive newtype instance ordC ∷ Ord C
 derive newtype instance semigroupC ∷ Semigroup C
-instance monoidC ∷ Monoid C where mempty = C EQ
+instance monoidC ∷ Monoid C where
+  mempty = C EQ
 
 newtype D = D Ordering
 
@@ -59,7 +62,8 @@ derive newtype instance coarbitraryD ∷ Coarbitrary D
 derive newtype instance eqD ∷ Eq D
 derive newtype instance ordD ∷ Ord D
 derive newtype instance semigroupD ∷ Semigroup D
-instance monoidD ∷ Monoid D where mempty = D EQ
+instance monoidD ∷ Monoid D where
+  mempty = D EQ
 
 newtype E = E Ordering
 
@@ -71,4 +75,5 @@ derive newtype instance coarbitraryE ∷ Coarbitrary E
 derive newtype instance eqE ∷ Eq E
 derive newtype instance ordE ∷ Ord E
 derive newtype instance semigroupE ∷ Semigroup E
-instance monoidE ∷ Monoid E where mempty = E EQ
+instance monoidE ∷ Monoid E where
+  mempty = E EQ

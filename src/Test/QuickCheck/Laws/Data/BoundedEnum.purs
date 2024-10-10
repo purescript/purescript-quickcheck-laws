@@ -1,4 +1,3 @@
-
 module Test.QuickCheck.Laws.Data.BoundedEnum where
 
 import Prelude
@@ -14,7 +13,6 @@ import Test.QuickCheck (quickCheck')
 import Test.QuickCheck.Arbitrary (class Arbitrary, arbitrary)
 import Test.QuickCheck.Gen (Gen)
 import Type.Proxy (Proxy)
-
 
 -- | - succ: `succ bottom >>= succ >>= succ ... succ [cardinality - 1 times] = top`
 -- | - pred: `pred top    >>= pred >>= pred ... pred [cardinality - 1 times] = bottom`
@@ -66,31 +64,31 @@ checkBoundedEnumGen gen = do
   quickCheck' 1000 $ tofromenumLaw <$> gen
 
   where
-    c :: Int
-    c = unwrap (cardinality :: Cardinality a)
+  c :: Int
+  c = unwrap (cardinality :: Cardinality a)
 
-    succLaw :: Boolean
-    succLaw = (Just top :: Maybe a) ==
-                foldl (>>=) (pure bottom) (replicate (c - 1) succ)
+  succLaw :: Boolean
+  succLaw = (Just top :: Maybe a) ==
+    foldl (>>=) (pure bottom) (replicate (c - 1) succ)
 
-    predLaw :: Boolean
-    predLaw = (Just bottom :: Maybe a) ==
-                foldl (>>=) (pure top) (replicate (c - 1) pred)
+  predLaw :: Boolean
+  predLaw = (Just bottom :: Maybe a) ==
+    foldl (>>=) (pure top) (replicate (c - 1) pred)
 
-    predsuccLaw :: a -> Boolean
-    predsuccLaw a = a == bottom || (pred a >>= succ) == Just a
+  predsuccLaw :: a -> Boolean
+  predsuccLaw a = a == bottom || (pred a >>= succ) == Just a
 
-    succpredLaw :: a -> Boolean
-    succpredLaw a = a == top || (succ a >>= pred) == Just a
+  succpredLaw :: a -> Boolean
+  succpredLaw a = a == top || (succ a >>= pred) == Just a
 
-    enumpredLaw :: a -> Boolean
-    enumpredLaw a = a == bottom || (fromEnum <$> pred a) == pred (fromEnum a)
+  enumpredLaw :: a -> Boolean
+  enumpredLaw a = a == bottom || (fromEnum <$> pred a) == pred (fromEnum a)
 
-    enumsuccLaw :: a -> Boolean
-    enumsuccLaw a = a == top || (fromEnum <$> succ a) == succ (fromEnum a)
+  enumsuccLaw :: a -> Boolean
+  enumsuccLaw a = a == top || (fromEnum <$> succ a) == succ (fromEnum a)
 
-    compareLaw :: a -> a -> Boolean
-    compareLaw a b = a `compare` b == fromEnum a `compare` fromEnum b
+  compareLaw :: a -> a -> Boolean
+  compareLaw a b = a `compare` b == fromEnum a `compare` fromEnum b
 
-    tofromenumLaw :: a -> Boolean
-    tofromenumLaw a = toEnum (fromEnum a) == Just a
+  tofromenumLaw :: a -> Boolean
+  tofromenumLaw a = toEnum (fromEnum a) == Just a

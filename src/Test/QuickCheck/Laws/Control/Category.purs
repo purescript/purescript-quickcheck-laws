@@ -36,4 +36,4 @@ checkCategoryGen gen = do
 
   identity ∷ a B C → Boolean
   identity p = (F.identity <<< p) == p
-            && (p <<< F.identity) == p
+    && (p <<< F.identity) == p
