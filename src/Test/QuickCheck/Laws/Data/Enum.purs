@@ -1,4 +1,3 @@
-
 module Test.QuickCheck.Laws.Data.Enum where
 
 import Prelude
@@ -48,20 +47,20 @@ checkEnumGen gen = do
 
   where
 
-    successor :: a -> Boolean
-    successor a = maybe true (a < _) (succ a)
+  successor :: a -> Boolean
+  successor a = maybe true (a < _) (succ a)
 
-    predecessor :: a -> Boolean
-    predecessor a = maybe true (_ < a) (pred a)
+  predecessor :: a -> Boolean
+  predecessor a = maybe true (_ < a) (pred a)
 
-    succRetractsPred :: a -> Boolean
-    succRetractsPred a = (pred a >>= succ >>= pred) == pred a
+  succRetractsPred :: a -> Boolean
+  succRetractsPred a = (pred a >>= succ >>= pred) == pred a
 
-    predRetractsSucc :: a -> Boolean
-    predRetractsSucc a = (succ a >>= pred >>= succ) == succ a
+  predRetractsSucc :: a -> Boolean
+  predRetractsSucc a = (succ a >>= pred >>= succ) == succ a
 
-    nonSkippingSucc :: a -> a -> Boolean
-    nonSkippingSucc a b = b <= a || maybe false (_ <= b) (succ a)
+  nonSkippingSucc :: a -> a -> Boolean
+  nonSkippingSucc a b = b <= a || maybe false (_ <= b) (succ a)
 
-    nonSkippingPred :: a -> a -> Boolean
-    nonSkippingPred a b = a <= b || maybe false (b <= _) (pred a)
+  nonSkippingPred :: a -> a -> Boolean
+  nonSkippingPred a b = a <= b || maybe false (b <= _) (pred a)

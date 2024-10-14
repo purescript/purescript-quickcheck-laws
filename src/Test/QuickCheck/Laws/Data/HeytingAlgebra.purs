@@ -108,8 +108,7 @@ checkHeytingAlgebraGen gen = do
   implicationId a = (a `implies` a) == tt
 
   implications ∷ a → a → Boolean
-  implications a b
-    = ((a && (a `implies` b)) == (a && b))
+  implications a b = ((a && (a `implies` b)) == (a && b))
     && ((b && (a `implies` b)) == b)
 
   distributiveImplication ∷ a → a → a → Boolean

@@ -11,7 +11,6 @@ import Test.QuickCheck.Gen (Gen)
 import Test.QuickCheck.Laws (A, B)
 import Type.Proxy (Proxy)
 
-
 -- | - foldr: `foldr = foldrDefault`
 -- | - foldl: `foldl = foldlDefault`
 checkFoldable
@@ -35,11 +34,11 @@ checkFoldableGen gen = do
   quickCheck' 1000 $ foldlLaw <$> gen
 
   where
-    foldrLaw :: f A -> (A -> B -> B) -> B -> Boolean
-    foldrLaw fa f b = foldr f b fa == foldrDefault f b fa
+  foldrLaw :: f A -> (A -> B -> B) -> B -> Boolean
+  foldrLaw fa f b = foldr f b fa == foldrDefault f b fa
 
-    foldlLaw :: f A -> (B -> A -> B) -> B -> Boolean
-    foldlLaw fa f b = foldl f b fa == foldlDefault f b fa
+  foldlLaw :: f A -> (B -> A -> B) -> B -> Boolean
+  foldlLaw fa f b = foldl f b fa == foldlDefault f b fa
 
 -- | foldMap: `foldMap = fold <<< map`
 checkFoldableFunctor
@@ -64,5 +63,5 @@ checkFoldableFunctorGen gen = do
   quickCheck' 1000 $ flip foldMapLaw <$> gen
 
   where
-    foldMapLaw :: (A -> B) -> f A -> Boolean
-    foldMapLaw f t = foldMap f t == (fold <<< map f) t
+  foldMapLaw :: (A -> B) -> f A -> Boolean
+  foldMapLaw f t = foldMap f t == (fold <<< map f) t

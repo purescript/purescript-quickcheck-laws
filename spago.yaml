@@ -1,0 +1,28 @@
+package:
+  name: quickcheck-laws
+  description: Law tests for core classes
+  publish:
+    license: MIT
+    version: 8.0.0
+    location:
+      githubOwner: purescript-contrib
+      githubRepo: purescript-quickcheck-laws
+  dependencies:
+    - arrays: ">=7.3.0 <8.0.0"
+    - console: ">=6.1.0 <7.0.0"
+    - control: ">=6.0.0 <7.0.0"
+    - effect: ">=4.0.0 <5.0.0"
+    - enums: ">=6.0.1 <7.0.0"
+    - foldable-traversable: ">=6.0.0 <7.0.0"
+    - maybe: ">=6.0.0 <7.0.0"
+    - newtype: ">=5.0.0 <6.0.0"
+    - prelude: ">=6.0.1 <7.0.0"
+    - quickcheck: ">=8.0.1 <9.0.0"
+  test:
+    main: Test.Main
+    dependencies:
+      - either
+      - identity
+      - lists
+      - tuples
+workspace: {}
